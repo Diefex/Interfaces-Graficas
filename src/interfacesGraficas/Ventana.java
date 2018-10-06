@@ -5,10 +5,14 @@ import interfacesGraficas.Paneles.Principales.*;
 import interfacesGraficas.Paneles.PanelIzquierdo;
 import interfacesGraficas.Botones.Boton;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Ventana extends JFrame implements ActionListener {
 
@@ -22,6 +26,13 @@ public class Ventana extends JFrame implements ActionListener {
     private Boton web;
     private Boton cerrar;
     private Boton config;
+    
+    private Boton mensaje;
+    private Boton notif;
+    
+    private JLabel perfil;
+    
+    private JTextField t;
 
     public Ventana() {
         super("Paneles");
@@ -43,18 +54,30 @@ public class Ventana extends JFrame implements ActionListener {
 
         Pizq = new PanelIzquierdo();
         add(Pizq);
-        añadirBotonesPIzq();
-
+        añadirBotonesPizq();
+        
         Psup = new PanelSuperior();
         add(Psup);
+        añadirBotonesPsup();
 
+        perfil = new JLabel();
+        perfil.setBounds(845, 20, 60, 60);
+        ImageIcon p = new ImageIcon("src/multimedia/imgPerfil.jpg");
+        ImageIcon pi = new ImageIcon(p.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH));
+        perfil.setIcon(pi);
+        Psup.add(perfil);
+        
+        t = new JTextField();
+        t.setBounds(300, 35, 100, 30);
+        Psup.add(t);
+        
         this.setLocationRelativeTo(null);
         this.setUndecorated(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
     }
 
-    private void añadirBotonesPIzq() {
+    private void añadirBotonesPizq() {
         String multimedia = new String("src/multimedia/");
         
         inicio = new Boton("inicio", multimedia+"icnInicio.png", 10,100,80,80);
@@ -72,6 +95,18 @@ public class Ventana extends JFrame implements ActionListener {
         cerrar = new Boton ("cerrar", multimedia+"icnCerrar.png", 10,500,80,80);
         cerrar.addActionListener(this);
         Pizq.add(cerrar);
+    }
+    
+    private void añadirBotonesPsup () {
+        String multimedia = new String("src/multimedia/");
+        
+        mensaje = new Boton("", multimedia+"icnMensaje.png", 50,25,50,50);
+        mensaje.addActionListener(this);
+        Psup.add(mensaje);
+        
+        notif = new Boton("", multimedia+"icnNotificacion.png", 100,25,50,50);
+        notif.addActionListener(this);
+        Psup.add(notif);
     }
 
     @Override

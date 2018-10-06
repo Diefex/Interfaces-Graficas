@@ -13,6 +13,7 @@ public class PanelSuperior extends JPanel implements Colores{
     public PanelSuperior () {
         setBounds(100,0,950,100);
         setBackground(WHITE220);
+        setLayout(null);
     }
     
 }
