@@ -1,5 +1,6 @@
 package interfacesGraficas.Paneles.Principales;
 
+import interfacesGraficas.Paneles.PanelPrincipal;
 import interfacesGraficas.Paneles.SubPanel;
 import java.awt.Color;
 

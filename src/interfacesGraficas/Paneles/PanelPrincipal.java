@@ -1,4 +1,4 @@
-package interfacesGraficas.Paneles.Principales;
+package interfacesGraficas.Paneles;
 
 import interfacesGraficas.Colores;
 import javax.swing.JPanel;

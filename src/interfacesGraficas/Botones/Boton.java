@@ -17,12 +17,27 @@ public class Boton extends JButton implements Fuentes {
         this.setFocusable(false);
         this.setCursor(new Cursor(Cursor.HAND_CURSOR));
         this.setForeground(Color.WHITE);
-        this.setFont(Century);
+        this.setFont(Century15);
         this.setText(texto);
         this.setHorizontalTextPosition(CENTER);
         this.setVerticalTextPosition(BOTTOM);
         ImageIcon img = new ImageIcon(ruta);
-        ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+        ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(height-30, height-30, Image.SCALE_SMOOTH));
+        this.setIcon(icono);
+    }
+    
+    public Boton (String ruta, int x, int y, int width, int height) {
+        this.setBounds(x, y, width, height);
+        this.setContentAreaFilled(false);
+        this.setBorderPainted(false);
+        this.setFocusable(false);
+        this.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        this.setForeground(Color.WHITE);
+        this.setFont(Century15);
+        this.setHorizontalTextPosition(CENTER);
+        this.setVerticalTextPosition(BOTTOM);
+        ImageIcon img = new ImageIcon(ruta);
+        ImageIcon icono = new ImageIcon(img.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH));
         this.setIcon(icono);
     }
     
